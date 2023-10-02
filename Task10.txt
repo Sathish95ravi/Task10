@@ -1,0 +1,374 @@
+
+1.package firstprog;
+
+public  class Person {
+	private String name;
+	private int age;
+	 public  Person(String name,int age) {
+		 this.name=name;
+		 this.age=age;
+		 
+	 }
+	 public String getName() {
+		 return name;
+		 
+	 }
+	 public int getAge() {
+		 return age;
+			 
+	 }
+	public static void main(String [] args) {
+		Person person1=new Person("Sathish",26);
+		System.out.println(person1.getName()+"is"+person1.getAge()+"years old.");
+	}
+}
+2.Employee:-
+     rivate String firstName;
+
+private String lastName;
+
+private double salary;
+
+public Employee()
+
+{
+
+firstName = "";
+
+lastName = "";
+
+salary = 0;
+
+}
+
+public Employee (String fName, String lName)
+
+{
+
+firstName = fName;
+
+lastName = lName;
+
+salary = 0;
+
+}
+
+public Employee( String fName, String lName, double s)
+
+{
+
+firstName = fName;
+
+lastName = lName;
+
+setSalary( s );
+
+}
+
+public String getFirstName()
+
+{
+
+return firstName;
+
+}
+
+public String getLastName()
+
+{
+
+return lastName;
+
+}
+
+public double getSalary()
+
+{
+
+return salary;
+
+}
+
+public void setFirstName( String fName)
+
+{
+
+firstName = fName;
+
+}
+
+public void setLastName ( String lName)
+
+{
+
+lastName = lName;
+
+}
+
+public void setSalary( double s)
+
+{
+
+if (s < 0 ) salary = 0;
+
+else salary = s;
+
+}
+
+public String toString()
+
+{
+
+return firstName + " " + lastName + " " + salary;
+
+}
+
+}
+ CommissionEmployee extends Employee
+{
+        public double commission;
+  
+        public CommissionEmployee()
+        {
+          
+        }
+  
+        public CommissionEmployee(String firstName, String lastName, double commission)
+        {
+                super(firstName,lastName);
+                this.commission = commission;
+                
+        }
+  
+        public void setCommission()
+        {
+              this.commission = commission;
+        }
+  
+        public double getCommission()
+        {
+              return commission;
+        }
+        public String toString() // overriding the toString() of the parent class
+        {
+    
+             return (super.toString()+ " value of commission "+commission);
+        }
+}
+ public class EmployeeTest
+{
+  
+ public static void main(String[] args) {
+    
+    
+    
+    CommissionEmployee commEmployee1 = new CommissionEmployee("john","Richards",18000.45); // child object
+    commEmployee1.setSalary(29999); method inherited from parent class
+    System.out.println(commEmployee1.toString());
+    
+    CommissionEmployee commEmployee2 = new CommissionEmployee("Christiano","Ronaldo",55000.45); // child object
+    commEmployee1.setSalary(25000); // method inherited from parent class
+    System.out.println(commEmployee2.toString());
+}
+3.Circle of circumference:-
+
+public class Circle {
+  private double radius;
+
+  public Circle(double radius) {
+    this.radius = radius;
+  }
+
+  public double getRadius() {
+    return radius;
+  }
+
+  public void setRadius(double radius) {
+    this.radius = radius;
+  }
+
+  public double getArea() {
+    return Math.PI * radius * radius;
+  }
+
+  public double getCircumference() {
+    return 2 * Math.PI * radius;
+  }
+4.Bank Account:-
+   public class Account
+{
+    protected int acno;
+    protected float balance;
+    
+    public Account(int a, int b) {
+        acno = a;
+        balance = b;
+    }
+    
+    public void withdraw(int w) {
+        balance -= w;
+    }
+    
+    public void deposit(int d) {
+        balance += d;
+    }
+}
+public class Calculate extends Account
+{
+    private int r;
+    private int t;
+    private float si;
+    private float amt;
+    
+    public Calculate(int a, int b) {
+        super(a, b);
+    }
+    
+    public void accept(int x, int y) {
+        r = x;
+        t = y;
+        amt = 0;
+    }
+    
+    public void compute() {
+        si = (balance * r * t) / 100.0f;
+        amt = si + balance;
+    }
+    
+    public void display() {
+        System.out.println("Account Number: " + acno);
+        System.out.println("Balance: " + balance);
+        System.out.println("Interest: " + si);
+        System.out.println("Amount: " + amt);
+    }
+}
+
+}
+5.Preparing Tea :-
+package firstprog;
+
+public class Tea {
+	
+	
+	    private double coffee_powder, milk, water;
+	    public Tea() {
+	        this.coffee_powder=0;
+	        this.milk=0;
+	        this.water=0;
+	        
+	    }
+
+	    
+		private void PrepareTea(){  
+	        System.out.println("\nFilling...");
+	        this.coffee_powder = 500.0;
+	        this.milk = 1;
+	        this.water= 2;
+	        System.out.println("Filling Completed.");
+	    }
+	  
+		private void AddMilk(){ 
+	            System.out.println("Available Coffee Power(Gram) "+String.format("%.1f",this.coffee_powder));
+	            System.out.println("Available Milk(Liter) "+String.format("%.1f", this.milk));
+	            System.out.println("Available Water(Liter) "+String.format("%.1f", this.water));
+	    }
+		private void AddSugar(){  
+	        System.out.println("ADDING SUGAR ...");
+		}
+	  public static void main(String [] args) {
+		  Tea PreparTea=new Tea();
+		  PreparTea.PrepareTea();
+		  PreparTea.AddMilk();
+		  PreparTea.AddSugar();
+		  
+		  
+	  }
+}
+6.Tea:-
+package firstprog;
+import java.util.Scanner;
+public class Tea {
+
+
+
+static Scanner scan = new Scanner(System.in);
+    private double Tea_powder, milk, water;
+    
+    public Tea() {
+        this.Tea_powder=0;
+        this.milk=0;
+        this.water=0;
+    }
+    private void BlackTea(){
+        if(this.Tea_powder >= 10 && this.water >= 0.2){
+            System.out.println("\nMaking Black Tea...");
+            System.out.println("\nTaking 10gm of Tea Powder.");
+            this.Tea_powder = this.Tea_powder - 10;
+            System.out.println("Taking 0.2 liter of Water.");
+            this.water = this.water - 0.2;
+            System.out.println("\nYour Black Tea is Ready.");
+           
+        }
+        else{
+            System.out.println("\nAvailable Tea Power(Gram) "+String.format("%.1f",this.Tea_powder));
+            System.out.println("Available Water(Liter) "+String.format("%.1f", this.water));
+            System.out.println("\nSome Iteams Are Not Available, Please Fill before Making Tea.");
+        }
+    }
+    private void HerbalTea(){
+        if(this.Tea_powder >= 10 && this.milk >= 0.4 && this.water >= 0.2){
+            System.out.println("\nMaking Herbal Tea...");
+	    
+	  }
+    }
+        private void GreenTea(){
+            if(this.Tea_powder >= 10 && this.milk >= 0.4 && this.water >= 0.2){
+                System.out.println("\nMaking Green Tea...");
+}
+        }
+       public static void main(String[] args){
+          Tea tea=new Tea();
+          tea.BlackTea();
+          tea.HerbalTea();
+          tea.GreenTea();
+       }
+       
+       }
+6:-
+class Tea {
+
+  
+  public void GreenTea() {
+    System.out.println("GreenTea...");
+  }
+}
+
+class Tea extends Milk {
+
+  
+  public void PureMilk() {
+    System.out.println("PureMilk...");
+  }
+}
+
+class Coffee extends Tea {
+
+  
+  public void BlackCoffee() {
+    System.out.println("BlackCoffee...");
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    
+    
+    Milk s1 = new Milk();
+    s1.PureMilk();
+
+    
+    Coffee c1 = new Coffee();
+    c1.lackCoffee();
+  }
+}
+
